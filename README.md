@@ -12,11 +12,7 @@ I explore three methods to approach customer segmentation projects:
 2. K-Prototype
 3. LLM + Kmeans
 
-![Getting Started](img/com2d2.png)
-
 I'll provide a comparison of 2D representations (PCA) of the different models I created. You'll also find my work with dimensionality reduction techniques such as PCA, t-SNE, and MCA, with results included.
-
-![Getting Started](img/METH.png)
 
 **Important Note**: In this project, I focus on the clustering methods rather than the exploratory data analysis (EDA) phase or variable selection, though these are crucial steps in such projects.
 
