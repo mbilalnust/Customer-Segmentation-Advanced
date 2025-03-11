@@ -1,65 +1,119 @@
-# Clustering with LLM
+# Customer Segmentation Using Advanced Clustering Techniques
 
-## Introduction
+## 📋 Overview
+This project explores innovative approaches to customer segmentation using a combination of traditional clustering methods and modern Language Models (LLM). It's designed to showcase how advanced techniques can enhance customer segmentation beyond conventional methods.
 
-In this project, I explore advanced techniques for customer segmentation through clustering. I've created this repository to share my journey in exploring different clustering approaches, which I believe will be valuable for data scientists looking to expand their toolbox and advance towards becoming senior data scientists.
+### 🎯 Project Goals
+- Demonstrate advanced customer segmentation techniques
+- Compare traditional and LLM-based clustering approaches
+- Provide practical insights for data scientists looking to expand their toolbox
 
-### What I'll Cover
+## 📊 Data Description
 
-I explore three methods to approach customer segmentation projects:
+### Dataset Source
+The analysis uses the "Banking Dataset - Marketing Targets" from Kaggle, chosen specifically for its diverse mix of data types that allows demonstration of various clustering approaches.
 
-1. Kmeans
-2. K-Prototype
-3. LLM + Kmeans
+### Key Features
+The analysis focuses on 8 primary customer attributes:
+- `age` (numeric): Customer's age
+- `job` (categorical): Type of occupation
+- `marital` (categorical): Marital status
+- `education` (categorical): Education level
+- `default` (binary): Credit default status
+- `balance` (numeric): Average yearly balance in euros
+- `housing` (binary): Housing loan status
+- `loan` (binary): Personal loan status
 
-I'll provide a comparison of 2D representations (PCA) of the different models I created. You'll also find my work with dimensionality reduction techniques such as PCA, t-SNE, and MCA, with results included.
+### Data Files
+Located in the `data` folder:
+- `train.csv`: Original training dataset
+- `embedding_train.csv`: Processed dataset with embeddings
 
-**Important Note**: In this project, I focus on the clustering methods rather than the exploratory data analysis (EDA) phase or variable selection, though these are crucial steps in such projects.
-
-## Data
-
-I'm using data from a public Kaggle dataset called "Banking Dataset - Marketing Targets." Each row contains information about a company's customers, including both numerical and categorical fields. I chose this dataset because its diversity in data types allows me to demonstrate various approaches to the problem.
-
-I focus on the first 8 columns of the dataset, which include:
-
-- `age` (numeric)
-- `job`: type of job (categorical)
-- `marital`: marital status (categorical)
-- `education`: education level (categorical)
-- `default`: has credit in default? (binary)
-- `balance`: average yearly balance in euros (numeric)
-- `housing`: has a housing loan? (binary)
-- `loan`: has a personal loan? (binary)
-
-I'm using the training dataset from Kaggle, which you can find in the "data" folder as a compressed file. Inside, you'll find two CSV files: `train.csv` (the original training dataset) and `embedding_train.csv` (the dataset after performing an embedding, which I'll explain later).
-
-Here's how I've structured the project:
-
+## 🗂️ Project Structure
 ```
 clustering_llm
-├─ data
-│  ├─ data.rar
-├─ img
-├─ embedding.ipynb
-├─ embedding_creation.py
-├─ kmeans.ipynb
-├─ kprototypes.ipynb
+├─ data/
+│  └─ data.rar
+├─ img/
+├─ embedding.ipynb          # LLM-based clustering implementation
+├─ embedding_creation.py    # Embedding generation script
+├─ kmeans.ipynb            # Traditional clustering implementation
+├─ kprototypes.ipynb       # Additional clustering experiments
 ├─ README.md
 └─ requirements.txt
-
 ```
 
-## Method 1: Kmeans
+## 🔍 Methodology
 
-I start with Kmeans, a commonly used clustering method, where I demonstrate advanced analysis techniques. You can find my complete procedure in the Jupyter notebook titled `kmeans.ipynb`.
+### Method 1: Enhanced K-means Approach
+This approach combines unsupervised and supervised learning for a comprehensive segmentation solution.
 
-## Method 2: Kprototype
-Here, I explore a method to create clusters when dealing with a mix of features (categorical and numerical). Check out my implementation in the Jupyter notebook titled `kprototypes.ipynb`.
+#### Components
+1. **K-means Clustering (Unsupervised)**
+   - Creates initial customer segments
+   - Identifies natural patterns without predefined labels
+   - Groups customers based on feature similarity
 
-## Method 3: LLM + Kmeans
-This is my favorite part of the project, where I demonstrate how to apply LLM to obtain impressive results in clustering projects. You can find my approach in the Jupyter notebook titled `embedding.ipynb`.
+2. **LightGBM Classifier (Supervised)**
+   - Interprets clustering results
+   - Explains cluster assignments
+   - Provides feature importance via SHAP values
 
+#### Key Benefits
+- Combines discovery (K-means) with interpretation (LightGBM)
+- Answers both "what" and "why" questions about segments
+- Provides actionable insights for business decisions
 
+### Method 2: LLM-Enhanced Clustering
+This innovative approach leverages the power of Language Models to create more nuanced customer segments.
 
+#### Process Flow
+1. **Text Transformation**
+   - Converts customer data into structured text descriptions
+   - Standardizes mixed data types into a unified format
+   - Example: "Age: 35, Job: engineer, Marital: married..."
 
+2. **Embedding Generation**
+   - Uses `paraphrase-MiniLM-L6-v2` transformer model
+   - Creates high-dimensional vector representations
+   - Captures semantic relationships between features
 
+3. **Clustering Analysis**
+   - Applies K-means to the embeddings
+   - Groups customers in the semantic space
+   - Identifies natural segments based on overall similarity
+
+#### Advantages
+1. **Data Handling**
+   - Seamlessly processes mixed data types
+   - Eliminates need for separate preprocessing
+   - Maintains feature relationships
+
+2. **Model Benefits**
+   - Captures complex feature interactions
+   - More robust to outliers
+   - Leverages pre-trained language understanding
+
+3. **Practical Benefits**
+   - Simplified pipeline
+   - More intuitive feature representation
+   - Better handling of categorical relationships
+
+## 📈 Results
+The project includes visualizations and comparisons using:
+- PCA (Principal Component Analysis)
+- t-SNE
+- MCA (Multiple Correspondence Analysis)
+
+Detailed results and comparisons can be found in the respective notebooks.
+
+## 🚀 Getting Started
+1. Clone the repository
+2. Extract the data from `data/data.rar`
+3. Install requirements: `pip install -r requirements.txt`
+4. Explore the notebooks in order:
+   - `kmeans.ipynb` for traditional approach
+   - `embedding.ipynb` for LLM-based approach
+
+## 📝 Note
+This project focuses on clustering methodologies rather than extensive EDA or feature selection. For production applications, consider incorporating these additional steps into your pipeline.
