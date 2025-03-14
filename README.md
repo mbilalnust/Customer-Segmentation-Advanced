@@ -35,8 +35,8 @@ clustering_llm
 ├─ data/
 │  └─ data.rar
 ├─ img/
-├─ embedding.ipynb          # LLM-based clustering implementation
-├─ embedding_creation.py    # Embedding generation script
+├─ kmeans_llm.ipynb          # LLM-based clustering implementation
+├─ llm_embedding.py    # Embedding generation script
 ├─ kmeans.ipynb            # Traditional clustering implementation
 ├─ kprototypes.ipynb       # Additional clustering experiments
 ├─ README.md
